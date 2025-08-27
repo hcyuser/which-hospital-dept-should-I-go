@@ -1,6 +1,13 @@
 - Chat with LLM about [Taylor Swift's New Heights podcast appearance](https://www.youtube.com/watch?v=M2lX9XESvDE&t=6297s) ([transcript here](https://www.youtube-transcript.io/videos?id=M2lX9XESvDE))
 - Discuss [Travis Kelce's GQ magazine interview](https://www.gq.com/story/travis-kelce-september-cover-2025-interview-super-bowl-taylor-swift)
 
+## Featured Content
+
+### Taylor Swift on New Heights Podcast
+[![Taylor Swift on New Heights Podcast](https://img.youtube.com/vi/QhF4CMqOsQQ/maxresdefault.jpg)](https://youtu.be/QhF4CMqOsQQ)
+
+*Click the thumbnail above to watch the YouTube video explaining this project*
+
 ## Tech Stack (Cloudflare products)
 
 | Product | Purpose | Documentation |
