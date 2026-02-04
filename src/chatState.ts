@@ -64,7 +64,7 @@ interface ChatMessage {
         try {
           // Get AI response
           console.log('Getting AI response...');
-          const aiResponse = await this.env.AI.autorag("proud-thunder-70c9").aiSearch({
+          const aiResponse = await this.env.AI.autorag("summer-poetry-5065").aiSearch({
             query: body.text,
           });
           console.log('Raw AI response:', aiResponse);
@@ -84,7 +84,7 @@ interface ChatMessage {
                     content: body.text,
                   },
                 ];
-              const response = await this.env.AI.run("@cf/openai/gpt-oss-120b", { messages });
+              const response = await this.env.AI.run("@cf/meta/llama-3.1-8b-instruct-fp8", { messages });
               responseText = response;
           }
           

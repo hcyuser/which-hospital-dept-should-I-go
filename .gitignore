@@ -165,3 +165,7 @@ dist
 .env*
 !.env.example
 .wrangler/
+
+# Folder formatting system files
+.DS_Store
+Thumbs.db
