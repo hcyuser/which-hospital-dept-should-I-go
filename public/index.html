@@ -1,176 +1,145 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>✨ Taylor New Heights & Travis GQ Chat 🏈 | It's a Loaf Story, Baby just say yeast </title>
-  
-  <!-- SEO and Social Meta Tags -->
-  <meta name="description" content="✨ Chat about our folklore queen Taylor Swift & tight end prince Travis Kelce #12! New Heights podcast insights, GQ tea, and enchanted AI conversations 🏈💛">
-  <meta name="keywords" content="Taylor Swift, Travis Kelce, thirteen, New Heights podcast, NFL, Chiefs, Eras Tour, folklore, reputation, chat, AI, love story">
-  
-  <!-- Open Graph / Social Media -->
+  <title>健保支付點數智慧諮詢｜Cloudflare AutoRAG 示範</title>
+
+  <meta name="description" content="結合健保支付標準與法規資料的 RAG 問答示範，呈現衛福部中央健康保險署風格的使用體驗。">
+  <meta name="keywords" content="健保, 全民健康保險, 支付標準, RAG, AutoRAG, Cloudflare, Workers AI, 健保支付點數">
+
   <meta property="og:type" content="website">
-  <meta property="og:title" content="✨ Taylor New Heights & Travis GQ Chat 🏈 | Love Story AI">
-  <meta property="og:description" content="Chat about our folklore queen & the tight end prince! ✨ New Heights insights & enchanted conversations 🏈💛">
+  <meta property="og:title" content="健保支付點數智慧諮詢">
+  <meta property="og:description" content="AutoRAG x Workers AI，提供健保支付點數即時查詢的示範介面。">
   <meta property="og:image" content="/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="✨ Taylor New Heights & Travis GQ Chat 🏈">
-  <meta name="twitter:description" content="Chat with the Taylor Swift New Heights podcast and Travis GQ article!✨🏈">
-  
-  <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏈</text></svg>">
-  
-  <!-- Fonts -->
+  <meta name="twitter:title" content="健保支付點數智慧諮詢">
+  <meta name="twitter:description" content="以健保署風格打造的 RAG 範例，整合支付標準、法規與公告。">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' ry='20' fill='%230077c8'/><text x='50' y='62' font-size='52' text-anchor='middle' fill='white' font-family='Arial, sans-serif'>NHI</text></svg>">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    
+
     body {
-      font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: linear-gradient(135deg, #ff8c00 0%, #ff6347 25%, #ffd700 50%, #ff4500 75%, #ff8c00 100%);
-      background-size: 400% 400%;
-      animation: gradientShift 8s ease infinite;
+      font-family: 'Noto Sans TC', 'Inter', 'Segoe UI', 'Microsoft JhengHei', sans-serif;
+      background: linear-gradient(180deg, #edf4fb 0%, #f7fbff 60%, #edf4fb 100%);
       min-height: 100vh;
-      overflow-x: hidden;
-    }
-    
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    
-    #root {
-      height: 100vh;
-      position: relative;
-    }
-    
-    /* Enhanced Loading state */
-    .loading {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      color: white;
-      font-size: 1.4rem;
-      font-weight: 600;
-      text-align: center;
-      padding: 20px;
-    }
-    
-    .loading-container {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(15px);
-      padding: 40px;
-      border-radius: 30px;
-      border: 2px solid rgba(255, 140, 0, 0.3);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    }
-    
-    .spinner {
-      width: 50px;
-      height: 50px;
-      border: 4px solid rgba(255, 255, 255, 0.3);
-      border-top: 4px solid #ffd700;
-      border-right: 4px solid #ff6347;
-      border-radius: 50%;
-      animation: spin 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
-      margin: 0 auto 20px;
-    }
-    
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    
-    .loading-text {
-      background: linear-gradient(45deg, #FFD700, #FF1493, #9370DB, #FFD700);
-      background-size: 400% 400%;
-      animation: taylorEras 3s ease infinite;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      font-weight: 900;
-      text-shadow: none;
-      letter-spacing: 1px;
-    }
-    
-    @keyframes taylorEras {
-      0% { background-position: 0% 50%; }
-      25% { background-position: 50% 0%; }
-      50% { background-position: 100% 50%; }
-      75% { background-position: 50% 100%; }
-      100% { background-position: 0% 50%; }
-    }
-    
-    .loading-subtitle {
-      margin-top: 15px;
-      font-size: 1.1rem;
-      opacity: 0.95;
-      font-weight: 600;
-      font-style: italic;
+      color: #1f2a44;
     }
 
-    .jersey-number-loading {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: linear-gradient(135deg, #DC143C 0%, #FF0000 100%);
-      color: white;
-      width: 35px;
-      height: 35px;
-      border-radius: 6px;
+    #root {
+      min-height: 100vh;
+    }
+
+    .loading {
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 900;
-      font-size: 1rem;
-      box-shadow: 0 4px 12px rgba(220, 20, 60, 0.4);
-      animation: pulse 2s ease-in-out infinite;
+      position: relative;
+      overflow: hidden;
+      padding: 24px;
     }
-    
-    /* Floating sparkles */
-    .sparkle {
+
+    .loading::before,
+    .loading::after {
+      content: '';
       position: absolute;
-      color: #ffd700;
-      font-size: 1.5rem;
-      animation: sparkleFloat 4s ease-in-out infinite;
+      border-radius: 50%;
+      background: rgba(14, 132, 198, 0.08);
+    }
+
+    .loading::before {
+      width: 420px;
+      height: 420px;
+      top: -80px;
+      right: -120px;
+    }
+
+    .loading::after {
+      width: 320px;
+      height: 320px;
+      bottom: -120px;
+      left: -80px;
+    }
+
+    .loading-container {
+      width: min(420px, 100%);
+      background: white;
+      padding: 40px 32px;
+      border-radius: 24px;
+      box-shadow: 0 30px 60px rgba(15, 66, 109, 0.15);
+      border: 1px solid #dbe7f5;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .gov-ribbon {
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      color: #0e84c6;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .spinner {
+      width: 54px;
+      height: 54px;
+      margin: 0 auto 16px;
+      border-radius: 50%;
+      border: 4px solid #e0effa;
+      border-top-color: #0e84c6;
+      border-left-color: #24c7c8;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .loading-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #0f406d;
+    }
+
+    .loading-subtitle {
+      margin-top: 10px;
+      font-size: 0.95rem;
+      color: #4a5e74;
+      line-height: 1.6;
+    }
+
+    .loading-meta {
+      margin-top: 18px;
+      font-size: 0.85rem;
+      color: #0e84c6;
+    }
+
+    .watermark {
+      position: absolute;
+      font-size: 5rem;
+      font-weight: 700;
+      color: rgba(14, 132, 198, 0.08);
+      letter-spacing: 0.3em;
+      bottom: 32px;
+      right: 32px;
       pointer-events: none;
     }
-    
-    @keyframes sparkleFloat {
-      0%, 100% { 
-        opacity: 0; 
-        transform: translateY(20px) scale(0) rotate(0deg); 
-      }
-      25% { 
-        opacity: 1; 
-        transform: translateY(0px) scale(1) rotate(90deg); 
-      }
-      75% { 
-        opacity: 1; 
-        transform: translateY(-10px) scale(1.2) rotate(270deg); 
-      }
-    }
-    
-    /* Performance optimizations */
+
     * {
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-    }
-    
-    img {
-      max-width: 100%;
-      height: auto;
     }
   </style>
 </head>
@@ -178,31 +147,26 @@
   <div id="root">
     <div class="loading">
       <div class="loading-container">
-        <div class="jersey-number-loading">12</div>
+        <div class="gov-ribbon">衛福部中央健康保險署 · Cloudflare AutoRAG</div>
         <div class="spinner"></div>
-        <div class="loading-text">✨ Taylor on New Heights & Travis in GQ Chat 🏈</div>
-        <div class="loading-subtitle">"It's a loaf story, baby just say yeast..." to loading! 💛</div>
+        <div class="loading-title">健保支付點數智慧諮詢</div>
+        <div class="loading-subtitle">正在載入醫事服務支付標準與最新公告，請稍候...</div>
+        <div class="loading-meta">資料更新：<span id="boot-date">--</span></div>
       </div>
-      
-      <!-- Enhanced floating sparkles -->
-      <div class="sparkle" style="top: 15%; left: 8%; animation-delay: 0s;">✨</div>
-      <div class="sparkle" style="top: 25%; right: 12%; animation-delay: 1s;">⭐</div>
-      <div class="sparkle" style="bottom: 35%; left: 15%; animation-delay: 2s;">💫</div>
-      <div class="sparkle" style="top: 55%; right: 20%; animation-delay: 3s;">🔥</div>
-      <div class="sparkle" style="bottom: 15%; right: 8%; animation-delay: 0.5s;">🎵</div>
-      <div class="sparkle" style="top: 40%; left: 25%; animation-delay: 1.5s;">🏆</div>
-      <div class="sparkle" style="bottom: 25%; left: 35%; animation-delay: 2.5s;">💛</div>
-      <div class="sparkle" style="top: 70%; right: 35%; animation-delay: 3.5s;">🏈</div>
-      <div class="sparkle" style="top: 35%; left: 45%; animation-delay: 0.8s;">👑</div>
-      <div class="sparkle" style="bottom: 45%; right: 45%; animation-delay: 2.2s;">💝</div>
+      <div class="watermark">NHI</div>
     </div>
   </div>
-  
-  <!-- React CDN -->
+
+  <script>
+    const bootDateEl = document.getElementById('boot-date');
+    if (bootDateEl) {
+      bootDateEl.textContent = new Date().toLocaleDateString('zh-TW');
+    }
+  </script>
+
   <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-  
-  <!-- Your bundled app -->
+
   <script src="/bundle.js"></script>
 </body>
 </html>
