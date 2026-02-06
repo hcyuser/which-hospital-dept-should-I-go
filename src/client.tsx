@@ -469,7 +469,7 @@ const Footer = styled.footer`
 
 const App: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([]);
-  const [newMessage, setNewMessage] = useState('');
+  const [newMessage, setNewMessage] = useState('精神疾病的醫療代碼是多少？');
   const [chatStateId, setChatStateId] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -684,8 +684,7 @@ const App: React.FC = () => {
             <Input
               value={newMessage}
               onChange={handleInputChange}
-              onKeyPress={handleKeyPress}
-              placeholder="例如：糖尿病門診教育支付點數是多少？"
+              placeholder="例如：精神疾病的醫療代碼是多少？"
               disabled={isLoading}
             />
             <Button onClick={sendMessage} disabled={isLoading}>
