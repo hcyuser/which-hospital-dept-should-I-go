@@ -1,12 +1,13 @@
-- Chat with LLM about [Taylor Swift's New Heights podcast appearance](https://www.youtube.com/watch?v=M2lX9XESvDE&t=6297s) ([transcript here](https://www.youtube-transcript.io/videos?id=M2lX9XESvDE))
-- Discuss [Travis Kelce's GQ magazine interview](https://www.gq.com/story/travis-kelce-september-cover-2025-interview-super-bowl-taylor-swift)
+- NHI Medical Payment Chat Bot
 
 ## Featured Content
 
-### Taylor Swift on New Heights Podcast
-[![Taylor Swift on New Heights Podcast](https://img.youtube.com/vi/QhF4CMqOsQQ/maxresdefault.jpg)](https://youtu.be/QhF4CMqOsQQ)
+### NHI Medical Payment Stadards in the Bot
+![Webpage Screenshot](./readme_assets/screenshot_0.png)
+![Webpage Screenshot](./readme_assets/screenshot_1.png)
+![Webpage Screenshot](./readme_assets/screenshot_2.png)
 
-*Click the thumbnail above to watch the YouTube video explaining this project*
+Users can engage with the chatbot to retrieve specific disease codes and corresponding payment amounts simply by querying disease names.
 
 ## Tech Stack (Cloudflare products)
 
@@ -17,7 +18,6 @@
 | **R2 Storage** | Object storage for transcript & article | [Docs](https://developers.cloudflare.com/r2/) |
 | **Workers AI** | AI inference w/ openai gpt-oss-120b | [Docs](https://developers.cloudflare.com/workers-ai/) |
 | **AutoRAG** | Retrieval Augmented Generation | [Docs](https://developers.cloudflare.com/autorag/) |
-| **Browser Rendering** | Scraped GQ article | [Docs](https://developers.cloudflare.com/browser-rendering) |
 
 ### Frontend
 
@@ -43,8 +43,8 @@ npm install -g wrangler
 #### Installation
 0. Clone and install dependencies:
 ```bash
-git clone https://github.com/elizabethsiegle/chat-w-taylor-on-newheights-and-travis-gq-autorag-openaioss
-cd taylor-newheights-rag
+git clone https://github.com/hcyuser/nhi-rag-bot
+cd nhi-rag-bot
 npm install
 npm install --save-dev esbuild @types/react @types/react-dom
 ```
@@ -55,17 +55,17 @@ npm install --save-dev esbuild @types/react @types/react-dom
 ```bash
 wrangler login
 ```
-3. [Download the YouTube podcast transcription](https://www.youtube-transcript.io/videos?id=M2lX9XESvDE) and hit the /scrape-gq endpoint to scrape the GQ article text. Save it to a .txt file. 
+3. [Get the docs](./rag_files)
 
 4. Set up R2 bucket with scraped GQ article and New Heights transcript from the previous step.
 ```bash
-wrangler r2 bucket create taylor-rag-articles
-wrangler r2 object put taylor-rag-articles/travisgq.txt --file ./path/to/travisgq.txt
-wrangler r2 object put "taylor-rag-articles/Taylor Swift on Reclaiming Her Masters, Wrapping The Eras Tour, and The Life of a Showgirl  NHTV.txt" --file ./path/to/transcript.txt
+wrangler r2 bucket create med-pay-std
+wrangler r2 object put med-pay-std/medical_service_payment_standards.md --file ./path/to/medical_service_payment_standards.md
+wrangler r2 object put med-pay-std/medical_service_payment_standards.pdf --file ./path/to/medical_service_payment_standards.pdf
 ```
 
 5. Configure AutoRAG in your Cloudflare dashboard under AI
-Point to your taylor-rag-articles R2 bucket
+Point to your med-pay-std R2 bucket
 
 6. Build and deploy:
 ```bash

@@ -700,7 +700,7 @@ const App: React.FC = () => {
 
       <Footer>
         <div>本示範運行於 Cloudflare Workers、Durable Objects 以及 AutoRAG，僅供健保支付點數資訊查詢與教學使用。</div>
-        <div>資料來源：衛生福利部中央健康保險署公開資訊、衛福部法規資料庫。原始碼：<a href="https://github.com/elizabethsiegle/chat-w-taylor-on-newheights-and-travis-gq-autorag-openaioss" target="_blank" rel="noreferrer">GitHub</a></div>
+        <div>資料來源：衛生福利部中央健康保險署公開資訊、衛福部法規資料庫。原始碼：<a href="https://github.com/hcyuser/nhi-rag-bot" target="_blank" rel="noreferrer">GitHub</a></div>
       </Footer>
       </AppContainer>
     </>
