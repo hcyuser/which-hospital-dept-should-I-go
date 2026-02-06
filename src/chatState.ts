@@ -64,7 +64,7 @@ interface ChatMessage {
         try {
           // Get AI response
           console.log('Getting AI response...');
-          const aiResponse = await this.env.AI.autorag("summer-poetry-5065").aiSearch({
+          const aiResponse = await this.env.AI.autorag("wandering-grass-53c4").aiSearch({
             query: body.text,
           });
           console.log('Raw AI response:', aiResponse);

@@ -2,7 +2,7 @@
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "taylor-newheights-rag",
 	"main": "src/index.ts",
-	"compatibility_date": "2025-08-13",
+	"compatibility_date": "2026-02-06",
 	"compatibility_flags": [
 		"nodejs_compat"
 	],
@@ -28,7 +28,7 @@
 	"r2_buckets": [
 		{
 			"binding": "R2_BUCKET",
-			"bucket_name": "taylor-rag-articles2"
+			"bucket_name": "med-data-split",
 		}
 	],
 	"ai": {
