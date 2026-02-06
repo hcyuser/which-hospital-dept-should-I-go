@@ -28,7 +28,7 @@
 	"r2_buckets": [
 		{
 			"binding": "R2_BUCKET",
-			"bucket_name": "med-data-split",
+			"bucket_name": "med-pay-std",
 		}
 	],
 	"ai": {
